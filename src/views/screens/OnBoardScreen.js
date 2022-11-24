@@ -1,13 +1,30 @@
-import React from 'react';
-import {Text, StyleSheet, View, Image} from 'react-native';
+import React, { useRef,useEffect, useState } from "react";
+import {Text, StyleSheet, View, Image,Animated} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import COLORS from '../../consts/colors';
 import {PrimaryButton} from '../components/Button';
 
 const OnBoardScreen = ({navigation}) => {
+
+
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  const fadeIn = () => {
+    // Will change fadeAnim value to 1 in 5 seconds
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 5000,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  useEffect(fadeIn, []);
+
+
+
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.white}}>
-      <View style={{height: 400}}>
+      <Animated.View style={{height: 400,opacity:fadeAnim}}>
         <Image
           style={{
             width: '100%',
@@ -16,10 +33,10 @@ const OnBoardScreen = ({navigation}) => {
           }}
           source={require('../../assets/as3nen.png')}
         />
-      </View>
+      </Animated.View>
       <View style={style.textContainer}>
         <View>
-          <Text style={{fontSize: 30, fontWeight: 'bold', textAlign: 'center',marginTop:-10}}>
+          <Text style={{fontSize: 30, fontWeight: 'bold', textAlign: 'center',marginTop:-10,color:"blue"}}>
               Ereader Store
           </Text>
           <Text

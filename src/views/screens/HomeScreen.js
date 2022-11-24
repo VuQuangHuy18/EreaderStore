@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useRef,useEffect,} from 'react';
 import {
   Dimensions,
   Image,
@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Animated
 } from 'react-native';
 import {
   FlatList,
@@ -25,6 +26,11 @@ const HomeScreen = ({navigation}) => {
   const [selectedCategoryIndex, setSelectedCategoryIndex] = React.useState(0);
 
   const ListCategories = () => {
+
+    
+
+
+
     return (
       <ScrollView
         horizontal
@@ -46,7 +52,7 @@ const HomeScreen = ({navigation}) => {
               <View style={style.categoryBtnImgCon}>
                 <Image
                   source={category.image}
-                  style={{height: 35, width: 35, resizeMode: 'cover'}}
+                  style={{height: 30, width: 30, resizeMode: 'cover'}}
                 />
               </View>
               <Text
