@@ -5,7 +5,10 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../consts/colors';
 import readers from '../../consts/ereader';
 import { PrimaryButton } from '../components/Button';
+
+import readers2 from '../../consts/ereader2';
 import { useState } from 'react';
+
 
 
 
@@ -73,7 +76,7 @@ const CartScreen = ({ navigation }) => {
       <FlatList
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 80 }}
-        data={readers}
+        data={readers2}
         renderItem={({ item }) => <CartCard item={item} />}
         ListFooterComponentStyle={{ paddingHorizontal: 20, marginTop: 20 }}
         
